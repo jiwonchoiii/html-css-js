@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+   
+    <title>Document</title>
+</head>
+<body>
+    <!-- <form action="전송된 아래의 전송파라미터(request parameter)를 받아서 처리할 곳을 URL로 지정" method="GET or POST"> -->
+    <!-- 서버가 다르다면 완전한 url 지정 -->
+
+    <!-- method: request parameter를 어떻게 담아서 보낼것인가? 
+    여러가지 방식이 있는데, 대부분 GET이나 POST를 쓴다.
+    GET 방식: form태그 사이에 지정한 모든 request parameter의 이름과 값을 request line에 넣어서 보낸다
+    POST 방식: body에 넣어서 보낸다. -->
+    <!--parameter 구분자 : &  -->
+    
+    <form action="http://localhost:8888" method="post">
+    <!-- 양식. form태그 사이에 있는 내용만 전달된다  -->
+    <!-- Query String: ?access=private&hobby=on&hobby=on&hobby=on  
+    -->
+        1. 정보공개 :
+        <input type='radio' name="access" value="public"> 공개
+        <input type='radio' name="access" value="private" checked> 비공개
+        <!-- name속성은 사용자가 선택한 값을 보관하는 request parameter 이름 -->
+        <!-- 값이 없는 request parameter는 전송되지 않는다.  -->
+        <!-- 모든 input태그의 name속성은 기능적으로 optional. 업무상으론 필수  -->
+
+        <hr> <!--수평선을 그려주는 태그 -->
+
+        2. 취 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;미 :
+        <input type='checkbox' name='hobby'> 탁구
+        <input type='checkbox' name='hobby'> 배드민턴
+        <input type='checkbox' name='hobby' checked> 음악감상
+        <input type='checkbox' name='hobby' checked> 악기연주     
+        
+        <!--checked: 화면을 랜더링할 때 체크되있도록 만들겠다는 의미.
+        사용자가 선택하기 전에 default값으로 지정--> 
+       
+        <p></p>
+        <br>
+        <input type="submit" value="전송">
+        <input type="reset" value="초기화">
+    </form>
+</body>
+</html>

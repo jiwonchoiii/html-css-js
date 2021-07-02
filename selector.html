@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+  
+    <style>
+
+        *{
+            background-color: rgb(159, 163, 218);
+        }
+
+        h1{
+            font-style: italic;
+            font-family: fantasy;
+            font-size: 72px;
+        }
+        p{
+            /* 태그선택자 */
+            /* 태그는 요소의 타입이다. */
+            font-size: 14px;  /* 기본 픽셀: 16px */
+            line-height: 180%;
+        }
+
+        #fly {
+            /* ID선택자: #으로 시작. id속성값은 현재 HTML문서에서 반드시 고유해야함 */
+            color:rgb(228, 233, 217);
+            font-weight:lighter;
+            font-family: fantasy;
+        }
+
+        #aaa{
+            color:forestgreen;
+            font-size:70px;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        .blue {
+            /* class 선택자: .로 시작 */
+         color: rgb(40, 40, 170);
+         font-size: 30px;
+         font-family: fantasy;
+
+        }
+    </style>
+
+</head>
+<body>
+
+    <h1>type selector</h1>
+    
+
+    <p><span id='fly'>id selector의 사용방법: #아이디 {속성선언;}  ID selecor is global attribute. </span>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Est magni dolorem atque assumenda laboriosam nobis, accusantium consectetur dolor impedit! Maxime quasi accusamus aliquam aspernatur. Illum, dolore! Nemo officiis nobis quis?</p>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspi<span id="aaa">practice</span>ciatis exercitationem quae asperiores provident repellat minima, eius excepturi facilis veritatis blanditiis alias magnam temporibus quo dolorum, accusamus nulla. Doloribus, illo quidem<p>Lorem ipsum dolor sit amet consectetur <span class='blue'>studying class selector!!!!</span>
+         adipisicing elit.x quisquam adipisci. Assumenda explicabo officiis provident eos e<span class='blue'>class selector의 사용방법: .클래스 이름 {속성선언;}</span>veniet neque quaerat, laudantium ipsam accusamus unde obcaecati numquam impedit labore vitae facere?</p>
+</body>
+</html>

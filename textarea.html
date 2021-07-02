@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+ 
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <input type="hidden" name="age" value="23">
+    인사말 남기기<br>
+    <!-- emmet코딩할때 값이 문자열이어도 ""를 쓰지 않는다. -->
+    <!-- 숨겨진 상태로 서버로 전송해야 하는 값이 있을 때 hidden을 사용한다. -->
+    
+    <textarea name="greeting" rows="5" cols="60" 
+    >인사말을 남겨주세요</textarea><br>
+    <!-- 제약을 하는 것은 아니고, 랜더링 화면에서
+    크기를 변경할 수 있다.  -->
+    <!-- 시작태그와 끝태그 사이에 컨텐츠로 넣어야 기본값을 지정할 수 있다.  -->
+
+    <input type="submit" value="전송">
+    </form>
+</body>
+</html>
