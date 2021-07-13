@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- 외부 스타일 시트를 정의하는 위치가 중요(최종 적용) -->
+    <link rel="stylesheet" href="/css/css_override.css">
+
+    <style>
+        p{
+            color: rgb(194, 33, 94)!important;
+            /* important를 쓰지 않도록 해야한다 */
+        }
+        p{
+            color:yellow;
+        }
+        p{
+            color:gold
+        }
+    </style>
+</head>
+<body>
+    <p style="color:white;">CSS가 중복 정의된 경우 어떤 것이 적용될까?</p>
+    <!-- 태그에 직접 적용한게 마지막에 적용된다. -->
+</body>
+</html>
