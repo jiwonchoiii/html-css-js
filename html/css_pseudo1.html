@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+    <style>
+        /* 가상 클래스 - 이벤트 가상 클래스 선택자 */
+
+        /* 링크가 최초로 만들어진 상태일때, 스타일을 적용 */
+
+        a:link{
+            color: blue;
+            /* text-decoration: underline */
+            text-decoration: none;
+        }
+
+        a:visited{
+            color: red;
+        }
+
+        a:hover{
+            text-decoration: underline;
+            filter: grayscale(100%) blur(2px);
+        }
+
+        a:active{
+            background-color: yellow;;
+        }
+
+        /* 태그선택자 + 클래스선택자의 조합 */
+        div.d1{
+            border: 3px dashed red;
+            width: 400px;
+            padding: 5px;
+        }
+
+        /* 가상클래스2 */
+        /* 태그선택자+클래스선택자+"이벤트" */
+        /* 마우스를 선택한 요소 위에 살짝 올려 놓았을 때(마우스 이벤트) 스타일을 적용 */
+
+        div.d1:hover{
+            background-color: yellow;
+        }
+        
+        div.d2{
+            border: 3px dashed green;
+            width: 400px;
+            padding: 5px;
+            margin: 10px 0 ;
+        }
+
+        /* 가상 클래스3 */
+        
+        div.d2:hover{
+            background-color: goldenrod;
+        }
+    </style>
+</head>
+<body>
+    <h2>Pseudo Class</h2>
+    <p><a href="http://www.w3.org" target="_blink">W3C 방문</a> : 마우스 이벤트에 따른 링크의 변화를 보세요</p>
+    
+    <div class="d1">
+        <h3>가상 클래스 1 영역</h3>
+        
+        마우스 위치에 따른 박스의 스타일 변화를 보세요
+    </div>
+
+    <div class="d2">
+        <h3>가상 클래스 2 영역</h3>
+
+        마우스 위치에 따른 박스의 스타일 변화를 보세요
+    </div>
+
+</body>
+</html>

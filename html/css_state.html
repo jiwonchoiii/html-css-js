@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+	<head>
+		<style>
+			/* 박스안의 텍스트와 뷰포트색이 같아서 보이지않음 */
+			div {
+				color: white;
+			}
+
+			/* 가상엘리먼트 선택자 */
+
+			/* h2태그의 텍스트에서 첫번째 문자만 선택 */
+
+			h2::first-letter {
+				font-size: 30px;
+				color: lightcoral;
+				text-transform: uppercase;
+			}
+
+			/* h2태그의 텍스트에서 첫번째 행만 선택 */
+			h3:first-line {
+				color: lightsalmon;
+			}
+
+			/* input태그에 입력 포커스가 주어졌을 때 생기는 가상 속성 */
+			input:focus {
+				color: white;
+				background-color: limegreen;
+			}
+
+			/* input태그가 체크되었고, div.d1 인접형제에 대해서 스타일 적용 */
+			input:checked + div.d1 {
+				background-color: gray;
+			}
+
+			/* input태그가 체크되었고, div.d2 인접형제에 대해서 스타일 적용 */
+			input:checked + div.d2 {
+				background-color: black;
+			}
+		</style>
+	</head>
+	<body>
+		<h2>UI요소상태 가상클래스 선택자</h2>
+
+		<h3>
+			문제) <br />
+			대한민국 수도는?
+		</h3>
+		<p>정답 작성: <input type="text" /></p>
+
+		<!-- ==================================== -->
+
+		<h2>answer</h2>
+		힌트 보기: <input type="checkbox" />
+
+		<div class="d1">남대문이 있는 곳이죠.</div>
+
+		<!-- ==================================== -->
+
+		정답 보기: <input type="checkbox" />
+
+		<div class="d2">서울</div>
+
+		<div>
+			<p></p>
+			<h2></h2>
+			<p></p>
+		</div>
+	</body>
+</html>

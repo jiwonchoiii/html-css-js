@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        /* 구조적 가상클래스 선택자 예쩨 */
+        /* DOM tree 기준으로 적용되고, child보다는 type가 들어간 선택자를 쓰는 것이 직관적이다. */
+
+        /* 이 문서에서 첫번째 태그는 p태그이기 때문에 적용되지 않음 */
+        h4:first-child {
+            color: blue;
+            font-size: 20px;
+        }
+
+        h4:nth-of-type(1) {
+            color: blue;
+            font-size:20px;
+        }
+
+        /* 라이브 서버에서 실행하면 적용안됨 */
+        h4:last-child { 
+            color:red;
+            font-size: 20px;
+        }
+        /* n은 1부터 시작하고, 지정하지 않은 태그도 순서에 포함한다 */
+        h4:nth-child(2n+1){
+            color: white;
+            background-color: green;
+        }
+
+        h4:nth-child(2n){
+            background-color: indianred;
+        }
+
+        h4:nth-last-child(2n){
+            font-family: fantasy;
+            font-size:50px;
+        }
+
+
+        /* 2. */
+    </style>
+</head>
+<body>
+    <p id="unique">hello</p>
+    <!-- id="unique" : 속성 노드 -->
+    <!-- 속성은 노드로 만들지 않는다 -->
+
+    <h4>HI</h4>
+ 
+    <h4>HI</h4>
+    <h4>HI</h4>
+    <h4>HI</h4>
+    <h4>HI</h4>
+    <h4>HI</h4>
+    <h4>HI</h4>
+    <h4>HI</h4>
+    <h4>HI</h4>
+    <h4>HI</h4>
+    <h4>HI</h4>
+</body>
+</html>
