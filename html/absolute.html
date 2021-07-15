@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8" />
+
+		<style>
+			#wrap {
+				position: relative;
+
+				width: 300px;
+				height: 300px;
+
+				border: 1px solid rgb(187, 60, 60);
+			}
+
+			.box {
+				/* 모든 자식 요소를 절대위치좌표 방식으로 레이아웃 수행 */
+				position: absolute;
+
+				/* top/left/right/bottom 좌표속성을 하나도 사용하지 않음 */
+
+				width: 50px;
+				height: 50px;
+
+				background: tomato;
+			}
+
+			#crd1 {
+				/* 기준이 되는 부모요소의 좌측상단 모서리에 딱 붙게 위치시킴 */
+				top: 0;
+				left: 0;
+			}
+
+			#crd2 {
+				/* 기준이 되는 부모요소의 우측상단 모서리에 딱 붙게 위치시킴 */
+				top: 0;
+				right: 0;
+			}
+
+			#crd3 {
+				/* 기준이 되는 부모요소의 좌측하단 모서리에 딱 붙게 위치시킴 */
+				bottom: 0;
+				left: 0;
+			}
+
+			#crd4 {
+				/* 기준이 되는 부모요소의 우측하단 모서리에 딱 붙게 위치시킴 */
+				bottom: 0;
+				right: 0;
+			}
+			#crd5 {
+				/* 기준이 되는 부모요소 기준으로 위에서 100, 왼쪽에서 100 떨어진 위치에 위치시킴 */
+				top: 100px;
+				left: 100px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="wrap">
+			<div class="box" id="crd1">1</div>
+			<div class="box" id="crd2">2</div>
+			<div class="box" id="crd3">3</div>
+			<div class="box" id="crd4">4</div>
+			<div class="box" id="crd5">5</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8" />
+		<style>
+			div {
+				font-size: 32px;
+				color: white;
+				border: 3px inset red;
+			}
+
+			#box1 {
+				position: absolute;
+				top: 0px;
+				left: 0px;
+
+				width: 100px;
+				height: 100px;
+
+				background: aquamarine;
+
+				z-index: 3;
+				/* 값이 클수록 위로간다.(눈 방향 기준) */
+			}
+
+			#box2 {
+				position: absolute;
+				top: 30px;
+				left: 30px;
+
+				width: 100px;
+				height: 100px;
+
+				background: cornflowerblue;
+
+				z-index: 2;
+			}
+
+			#box3 {
+				position: absolute;
+				top: 60px;
+				left: 60px;
+
+				width: 100px;
+				height: 100px;
+
+				background: green;
+
+				z-index: 1000;
+			}
+		</style>
+		<title></title>
+	</head>
+	<body>
+		<div id="box1">box #1</div>
+		<div id="box2">box #2</div>
+		<div id="box3">box #3</div>
+	</body>
+</html>

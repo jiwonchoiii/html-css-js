@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8" />
+
+		<style>
+			body {
+				font-weight: bold;
+				font-size: 12pt; /* 1pt = 1/72inch ( 1 inch = 2.54cm ) */
+			}
+
+			#rp1 {
+				position: relative;
+
+				/* 실제 배치할 좌표 설정은 top/left/right/bottom으로 함 */
+				left: 30px;
+				top: -10px;
+
+				background-color: orange;
+				border: 5px solid purple;
+
+				/* 기본 box-sizing: content-box */
+				width: 400px;
+				height: 50px;
+			}
+
+			#sp {
+				position: static;
+
+				background-color: palevioletred;
+				border: 1px solid purple;
+
+				/* 기본 box-sizing: content-box */
+				width: 400px;
+				height: 50px;
+			}
+
+			#rp2 {
+				position: relative;
+
+				left: 60px;
+				top: 20px;
+
+				background-color: peru;
+
+				/* 기본 box-sizing: content-box */
+				width: 400px;
+				height: 50px;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>positioning style2</h1>
+
+		<p id="sp">정적위치 설정적용</p>
+		<div id="rp1">상대위치 설정적용 - left 30px, top -10px</div>
+		<p id="rp2">상대위치 설정적용 - left 60px, top 20px</p>
+	</body>
+</html>
