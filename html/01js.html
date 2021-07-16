@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8" />
+		<title>자바스크립트 예제</title>
+
+		<script>
+			var num = 0; // num이라는 변수를 정의
+
+			console.log("1. head 태그 내 실행 순서:", num);
+		</script>
+
+		<script>
+			// num변수값 변경(동일이름의 변수선언은 문법적으로는 허용되나,
+			// 기존 변수를 새로운 변수로 다시 선언하지 못하고, 그냥 기존 변수 사용의 의미)
+			var num = 1;
+
+			console.log("2. head 태그 내 실행 순서:", num);
+		</script>
+
+		<script>
+			var num = 2;
+
+			console.log("3. head 태그 내 실행 순서:", num);
+		</script>
+
+		<script>
+			var num = 3;
+
+			console.log("4. head 태그 내 실행 순서:", num);
+		</script>
+	</head>
+	<body></body>
+</html>
