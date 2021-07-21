@@ -3,39 +3,35 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <style>
-       h3{
-            border: 5px inset purple;
-        }
-
-        img{
-            border: 5px solid red;
-            padding: 10px;
-            margin: 5px;
-        }
-    </style>
-    <title>Document</title>
+   
+    <title>html입력양식</title>
 </head>
 <body>
-    <!-- h3: block-level -->
-    <h3>TITLE_1</h3>
-    <h3>TITLE_2</h3>
-    <h3>TITLE_3</h3>
-    <!-- Block-Level Element는 viewport의 한 행을 온전히 차지한다.  
-    따라서 세로배열이다 - 그다음에는 무슨 요소가 나오든 밑에 나올 수 밖에 없다.
-    직전태그가 인라인이든 아니든 무조건 세로 배열-->
+    <form action="http://localhost:8888" method="post">
+        <!-- 서버에 전송되는 모든 request parameter의 값은 "문자열"이다.  -->
+        1. text: <input type="text" name="name1"><br>
+        2. search: <input type="search" name="name2"><br>
+        3. tel: <input type="tel" name="name3"><br>
+        4. url: <input type="url" name="name4"><br>
+        5. email: <input type="email" name="name5"><br>
+        6. date: <input type="date" name="name6"><br>
+        7. month: <input type="month" name="name7"><br>
+        8. week: <input type="week" name="name8"><br>
+        9. time: <input type="time" name="name9"><br>
+        10. datetime-local: <input type="datetime-local" name="name10"><br>
+        11. number: <input type="number" name="name11"><br>
+        12. range: <input type="range" name="name12"><br>
+        13. color: <input type="color" name="name13"><br>
+        14. checkbox: <input type="checkbox" name="name14"><br>
+        15. image: <input type="image" name="name15"><br>
+        16. file: <input type="file" name="name16"><br>
+        
+        <!-- required attribute에 값이 없으면 전송되지 않는다.  -->
+        <p></p>
 
-    <!-- img: inline-level  -->
-     <img src="1.jpg" width="100px" height="100px">
-     <!-- <img src="1.jpg" width="100px" height="100px">
-     <img src="1.jpg" width="100px" height="100px"> -->
-   
-    <!-- Inline-Level Element은 viewport영역에서 콘텐츠 크기만큼만 차지한다.
-    가로배열이 되었다가 표시 영역이 모자르면 아래로 내려간다 -->
-
-
-     <p>hello</p> <!-- Block-Level Element -->
-     
-
+        <input type="submit" value="Submit">
+    </form>
+ 
+    
 </body>
 </html>

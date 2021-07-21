@@ -1,12 +1,15 @@
-var num; // 변수 값이 없음
-var obj = null; // 객체 변수 값이 없음
+var x=5;
+var y=7;
+var result; // undefined: 변수가 선언만 되고, 초기화되지 않은 상태 
 
-console.log(typeof(100),"<br>");
-console.log(typeof(10.5),"<br>");
-console.log(typeof "jiwon","<br>");
-console.log(typeof true,"<br>");
-console.log(typeof [1,2,3],"<br>");
-console.log(typeof {name:'jiwon', age:28},"<br>");
-console.log(typeof num,"<br>");
-console.log(typeof obj,"<br>");
-		
+// 그 후에, 실행문장을 만든다.
+result = (x<10 && y>10); //논리곱(그리고)
+console.log("x<10 && y>10 : " , result);
+
+result = (x<10 || y>10); //논리합(또는)
+console.log("x<10 || y>10 : ", result);
+
+result = !(x<10 && y>10); //논리 부정(NOT)
+console.log("!(x<10 && y>10) : " , result);
+
+console.log(typeof result);
