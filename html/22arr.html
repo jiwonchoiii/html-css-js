@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    <script>
+        var arrdata=[]; // 비어있는 배열 생성 by 배열 리터럴 방식
+
+        // 새로운 원소를 배열에 삽입하는 함수
+        function insertArr() {
+            var i=0; // 지역변수 
+
+            for(i=0;i<=99;i++){
+                // **인덱스번호를 지정하고 rValue에 값을 지정하면 새로운 원소가 만들어진다
+                arrdata[i] = i+1 ; // 1~100 데이터 저장
+
+                console.log(arrdata[i]); // 데이터 출력
+            } // for
+
+        } // insertArr
+        
+        // 배열의 원소를 삭제하는 함수
+        function delArr(){
+            var i; // 지역변수: 카운터 변수(=loop control variable)
+
+            for(i=0; i<arrdata.length;i++){
+                if(i%2==0){  // 홀수 번째 데이터를(짝수 인덱스가 홀수번째 데이터)
+                    arrdata[i]=0;        // 0으로 초기화 
+                }
+            }// classical for
+
+            selectArr(); // 다른 함수 호출 
+        } // delArr
+
+        function selectArr(){
+            var i;
+
+            for(i=0; i<arrdata.length;i++){
+                console.log(arrdata[i]); // 데이터 조회
+            } // classical for
+            
+            console.log("<p>홀수 번째 데이터 초기화 완료");
+        } // selectArr
+
+        insertArr(); // 함수 호출
+    </script>
+
+
+
+    <p></p>
+
+    <!-- onclick: global event attribute -->
+    <!-- 1. button tag: event source(target) -->
+    <!-- 2. onclick: event type -->
+    <!-- 3. onclick에 지정한 JS함수: event handler(listener) -->
+    <button 
+        type="button" 
+        onclick="javascript:delArr();">배열의 홀수 번째 데이터 초기화</button>
+</body>
+</html>
