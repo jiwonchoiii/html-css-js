@@ -11,3 +11,5 @@ var task = (item, index) => {
 } // task
 
 arr.forEach(task);
+// 의사가 문진을 돌며 환자를 만나듯 배열을 순회한다. 
+// 배열의 요소를 순회하며 뭘 할지는 우리가 정하고(task) 매개변수로 준다. 

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+
+    <script>
+           var arr=[];
+
+
+for(var i=0; i<10;++i){
+    arr[i]=[
+
+        String(i+"-"+0),
+        String(i+"-"+1),
+        String(i+"-"+2), 
+        
+    ];
+}  // classical for 
+
+//  2차원배열의 모든 원소를 순회하여 출력해보자
+
+function printData(){
+    for(var x=0;x<arr.length;x++){
+        for(var y=0; y>arr[x].length;y++){
+            console.log(arr[x][y]+" ");
+        } // inner for
+        console.log("<p></p>");
+    } // outer for
+    console.log("<a href='40arr.html'>돌아가기</a>");
+} // printData
+
+</script>
+
+    <button type="button" onclick="javascript:printData();">전체 배열 데이터 보기</button>
+
+ 
+</body>
+</html>
