@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <script>
+      function add() {
+        img = document.createElement("img");
+
+        // HTMLElement.setAttribute(속성명,속성값)
+        // 을 이용하여, 새로 생성한 요소노드에 속성노드를 추가할 수 있음
+        img.setAttribute("src", "https://picsum.photos/id/684/600/400");
+        img.setAttribute("width", 100);
+        img.setAttribute("height", 122);
+
+        document.body.appendChild(img);
+      } // add
+      function remove() {
+        // (method) Node.removeChild<HTMLImageElement>(oldChild: HTMLImageElement): HTMLImageElement
+        img.remove();
+      }
+    </script>
+  </head>
+  <body>
+    <a href="#" onclick="add()">[이미지 추가]</a>
+    <a href="#" onclick="remove()">[이미지 삭제]</a>
+
+    <p></p>
+  </body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <script>
+      function add() {
+        // 1. 새로운 이미지 태그 생성
+        var img = document.createElement("img");
+
+        // 2.이미지 태그에 src/width/height 속성 생성 및 속성값 설정
+
+        img.src = "http://place-hold.it/200x200";
+        img.width = 200;
+        img.height = 122;
+
+        // 3. body태그에 이미지태그를 자식으로 추가
+        document.body.appendChild(img);
+      } // add
+    </script>
+  </head>
+  <body>
+    <a href="#" onclick="add()">[이미지 추가]</a>
+    <p></p>
+  </body>
+</html>

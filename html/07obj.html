@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <p>[hong's car]</p>
+
+    <p id="carname"></p>
+    <p id="carcolor"></p>
+    <p id="carspeed"></p>
+
+    <p>[kim's car]</p>
+
+    <p id="carname2"></p>
+    <p id="carcolor2"></p>
+    <p id="carspeed2"></p>
+
+    <script>
+      //사용자 정의 생성자 함수 선언
+      function Car(name, color, speed) {
+        // 함수 내에서, this키워드를 사용하여 멤버(속성, 메서드) 추가
+        this.name = name; // 속성1
+        this.color = color; // 속성2
+        this.speed = speed; // 속성3
+
+        // 기본함수, 생성자함수의 차이 - this 키워드
+        this.speedup = function () {
+          // 메소드1
+          return this.speed + 10;
+        }; // speedup
+
+        this.speeddown = function () {
+          return this.speed - 10;
+        }; // speeddown
+      } // constructor
+
+      //   사용자정의 생성자 함수로 객체를 생성하고 사용하기
+
+      var hongCar = new Car("sonata", "blue", 100);
+      var kimCar = new Car("jeep", "red", 70);
+
+      console.log("1. hongCar:", hongCar);
+      console.log("2. kimCar:", kimCar);
+
+      // DOM tree를 조작하자! by using document 내장객체
+
+      // var cname=document.getElementById("carname");
+      //   var cname = document.querySelectorAll(".carname");
+      var cname = document.querySelector("#carname");
+      cname.textContent = "자동차 이름: " + hongCar.name;
+
+      var colname = document.querySelector("#carcolor");
+      colname.textContent = "자동차 색상: " + hongCar.color;
+
+      var cspeed = document.querySelector("#carspeed");
+      cspeed.textContent = "자동차 속도: " + hongCar.speedup();
+
+      var cname = document.querySelector("#carname2");
+      cname.textContent = "자동차 이름: " + kimCar.name;
+
+      var colname = document.querySelector("#carcolor2");
+      colname.textContent = "자동차 색상: " + kimCar.color;
+
+      var cspeed = document.querySelector("#carspeed2");
+      cspeed.textContent = "자동차 속도: " + kimCar.speeddown();
+    </script>
+  </body>
+</html>

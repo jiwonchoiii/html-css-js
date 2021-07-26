@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title></title>
+  </head>
+  <body>
+    <div id="digClock"></div>
+
+    <script>
+      function digClock() {
+        var today = new Date(); // Date 객체 생성
+
+        var day = today.getMonth() + 1 + "월 " + today.getDate() + "일 ";
+
+        var time =
+          today.getHours() +
+          "시 " +
+          today.getMinutes() +
+          "분 " +
+          today.getSeconds() +
+          "초";
+
+        // DOM tree 조작
+        document.getElementById("digClock").innerHTML = day + time;
+
+        //--------------------------------------
+        // syntax: setTimeout(callback,ms)
+        //--------------------------------------
+        // 지정된 시간 만료 후, callback 수행(1회성)
+        //--------------------------------------
+        //  setTimeout('digClock()',1000); // 호출할 함수를 문자열로도 지정가능하다- 함수호출연산자(소괄호) 붙여야함!
+        // setTimeout(digClock, 1000); // 정석
+      } // digClock
+
+      digClock(); // 함수 호출
+
+      //--------------------------------------
+      //  syntax: setInterval(callback, ms)
+      //    지정된 시간만료 후 마다, 연속적으로 callback 수행
+      //--------------------------------------
+      setInterval(digClock, 1000); //1000ms(1초)마다 digClock메소드를 자동으로 호출한다
+    </script>
+  </body>
+</html>

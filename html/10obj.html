@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <p id="car"></p>
+    <p>[car 1 속성]</p>
+    <p id="car0"></p>
+    <p>[car 2 속성]</p>
+    <p id="car1"></p>
+    <p>[car 3 속성]</p>
+    <p id="car2"></p>
+
+    <script>
+      var car = new Array(
+        ["sonata", "blue", 100], // 원소가 또 배열 리터럴 객체
+        ["jeep", "red", 70],
+        ["passt", "white", 150]
+      ); // 2차원 행렬 생성 by Array 생성자 함수
+
+      //   2차원 행렬의 참조(사용): 2개의 인덱스기호([]][])를 사용하여
+      // 특정 cell의 값 참조 가능
+
+      var cname = document.getElementsById("car");
+
+      cname.textContent = "car[2][1] : " + car[2][1]; // 특정 셀 참조
+      for (var i = 0; i < 3; i++) {
+        var cname = document.getElementById("car" + i);
+        cname.textContent = car[i]; // 특정 행(=배열 객체) 참조
+      }
+    </script>
+  </body>
+</html>

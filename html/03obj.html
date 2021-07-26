@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title></title>
+  </head>
+  <body>
+    <script>
+      //   객체리터럴 방식으로, "사용자정의객체" 생성
+      var car = {
+        name: "Sonata",
+        speed: 50,
+        color: "white",
+        start: function () {
+          return this.speed + 10;
+        },
+      };
+
+      console.log("-1. typeof car:", typeof car); // object
+
+      // (method) Document.getElementById(elementId: string): HTMLElement
+      console.log("-2. getElementById:", document.getElementById("carname"));
+
+      //위에 선언된 3개의 <p> 태그(=문서객체)의 콘텐츠를 조작
+
+      var cname = document.getElementById("carname");
+      cname.textContent = car.name;
+      var colname = document.getElementById("carcolor");
+      colname.textContent = car.color;
+      var cspeed = document.getElementById("carspeed");
+      cspeed.textContent = car.start;
+    </script>
+  </body>
+</html>

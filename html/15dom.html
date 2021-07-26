@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title></title>
+    <script>
+      function add() {
+        // 1. 새로운 요소 노드 생성
+        var header = document.createElement("h3");
+
+        // 2. 새로운 텍스트 노드 생성
+        var textNode = document.createTextNode("제 이름은 최지원입니다.");
+
+        // 3. 위 1,2에서 새로 생성한 요소 노드와 텍스트 노드를 서로 연결
+        header.appendChild(textNode);
+
+        // 4. 3에서 생성한 문서객체(즉, 태그)를 body태그에 추가
+        document.body.appendChild(header);
+      } // add
+    </script>
+  </head>
+  <body>
+    <a href="#" onclick="javascript:add();">당신의 이름은 무엇입니까? </a>
+    <!-- DOM TREE가 완성된 후에 링크를 클릭- 스크립트 태그가 앵커 태그 아래에 있을 이유가 없다 -->
+  </body>
+</html>
