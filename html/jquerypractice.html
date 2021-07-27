@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>jquery</title>
+    <!-- jquery는 DOM TREE가 완성된 후 구동되도록 설계되어있다 -> head태그 사이에 넣는다. -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <script>
+      // 제이쿼리 초기에 쓰던 방식
+      $(document).ready(function () {
+        // DOM tree가 완성되면 ready가 호출되고, ready는 익명함수를 호출한다.
+        console.log("jq started");
+        // 모든 제이쿼리 메소드 호출코드가 여기에 옴
+      });
+
+      // 현재의 제이쿼리 사용방식
+      $(function () {
+        console.log("jq started");
+      });
+    </script>
+  </head>
+  <body></body>
+</html>

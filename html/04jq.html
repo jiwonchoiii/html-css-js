@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+
+    <style>
+        /* 소속 선택자 : 여러 선택자를 연결시켜, 좀 더 정확히 요소를 선택하고자 하는게 목적임 */
+
+        div.container{
+            /* div 태그 중 class 속성이 container인 선택자 */
+            width : 200px;
+            height : 100px;
+            border : 5px solid salmon;
+
+            text-align : center;
+            background-color :pink;
+        }
+    </style>
+
+    <script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js></script>
+    <script src=https://cdnjs.cloudflare.com/ajax/libs/jquery-migrate/3.3.2/jquery-migrate.min.js></script>
+
+    <script>
+        var n = 0;
+
+        // 문서준비 이벤트 핸들러
+        //  1.
+
+        $(function(){
+            console.log("1. jq started");
+            
+            $("div.container").mouseenter(function(){
+                console.log("2. mouseenter invoked.");
+
+                //  .text() == .textContent 속성조작
+                //  .html() == .innerHTML   속성조작
+                $("p:first").text("마우스 포인트 들어옴");
+                $("p:last").text(++n);
+
+            }); //onmouseenter
+        });//jq
+    </script>
+</head>
+<body>
+    <div class="container">
+        <p>마우스 이벤트 알아보기</p>
+        <p>0</p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>jquery</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-migrate/3.3.2/jquery-migrate.min.js"></script>
+
+    <script>
+      $(function () {
+        console.clear();
+
+        $("#out").click(function () {
+          $("img").fadeOut("slow");
+        }); // onclick for out
+
+        $("#in").click(function () {
+          $("img").fadeIn("slow");
+        }); // onclick for in
+
+        $("#toggle").click(function () {
+          $("img").fadeToggle("slow");
+        }); // onclick for toggle
+
+        $("#to50").click(function () {
+          $("img").fadeTo("slow", 0.5);
+        }); // onclick for to50
+
+        $("#to10").click(function () {
+          $("img").fadeTo("slow", 0.1);
+        }); // onclick for to10
+
+        $("#to100").click(function () {
+          $("img").fadeTo("slow", 1);
+        }); // onclick for to100
+      }); // jq
+    </script>
+  </head>
+  <body>
+    <button id="out">fadeOut</button>
+    <button id="in">fadeIn</button>
+    <button id="toggle">fadeToggle</button>
+
+    <button id="to50">opacity 50%</button>
+    <button id="to10">opacity 10%</button>
+    <button id="to100">opacity 0%</button>
+    <p></p>
+    <img src="https://picsum.photos/id/684/1200/630" name="pic1" />
+  </body>
+</html>

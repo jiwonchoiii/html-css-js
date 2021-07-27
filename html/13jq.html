@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-migrate/3.3.2/jquery-migrate.min.js"></script>
+
+    <script>
+      $(function () {
+        console.clear();
+        console.log("jq started");
+
+        $("#hide").click(function () {
+          $("img").hide("slow");
+        }); // onclick for hide
+
+        $("#show").click(function () {
+          $("img").show("fast");
+        }); // onclick for show
+
+        $("#toggle").click(function () {
+          $("img").toggle(3000);
+        }); // onclick for toggle
+      }); // jq
+    </script>
+  </head>
+  <body>
+    <button id="hide">hide</button>
+    <button id="show">show</button>
+    <button id="toggle">toggle</button>
+
+    <p></p>
+
+    <img name="pic1" src="https://picsum.photos/id/30/600/400" />
+  </body>
+</html>

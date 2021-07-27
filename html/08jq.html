@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>jquery</title>
+
+    <style>
+      .red {
+        color: red;
+        border: 5px solid blue;
+      }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-migrate/3.3.2/jquery-migrate.min.js"></script>
+
+    <script>
+      $(function () {
+        console.clear();
+        console.log("jq started");
+
+        $("button").click(function () {
+          console.log(">>>onclick event triggered");
+
+          $("h1,h2,p,div").toggleClass("red");
+        }); // onclick
+      }); // jq
+    </script>
+  </head>
+  <body>
+    <h1>HTML5</h1>
+    <h2>CSS3</h2>
+    <p>자바스크립트</p>
+    <div>제이쿼리</div>
+    <button>CSS 속성 toggle</button>
+  </body>
+</html>

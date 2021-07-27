@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+<meta charset=UTF-8>
+    <title>jquery</title>
+
+    <style>
+        /* 소속 선택자 : 여러 선택자를 연결시켜, 좀 더 정확히 요소를 선택하고자 하는게 목적임 */
+
+        div.container{
+            /* div 태그 중 class 속성이 container인 선택자 */
+            width : 200px;
+            height : 100px;
+            border : 5px solid salmon;
+
+            text-align : center;
+            background-color :pink;
+        }
+    </style>
+
+    <script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js></script>
+    <script src=https://cdnjs.cloudflare.com/ajax/libs/jquery-migrate/3.3.2/jquery-migrate.min.js></script>
+
+    <script>
+        var n = 0;
+        $(function(){
+            console.clear(); // 브라우저의 콘솔화면을 지움
+        console.log('1. ready event triggered');
+
+        $("div.container").mouseenter(function (e){
+            console.log('2. mouseenter event triggered.');
+            console.log('\t+ e:',e);
+
+            $("p:first").text("마우스 포인트 들어옴");
+            $("p:last").text(++n);
+        }); // mouseenter
+
+        $("div.container").mouseleave(function (e){
+            console.log('3. mouseleave event triggered.');
+            console.log('\t+ e:',e);
+
+            $("p:first").text("마우스 포인트 나감");
+            $("p:last").text("최종 횟수 : " + n);
+        }); // mouseleave
+
+
+        }); // jq
+       
+    
+    </script>
+</head>
+<body>
+    <div class="container">
+        <p>이벤트 알아보기</p>
+        <p>0</p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>jquery</title>
+
+    <style>
+      .css_pic {
+        height: 430px;
+        text-align: center;
+      }
+
+      .css_pic img {
+        width: 250px;
+      }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-migrate/3.3.2/jquery-migrate.min.js"></script>
+
+    <script>
+      // 객체 리터럴 방식으로 사용자 정의 객체를 만드는 방법
+      var obj = {
+        field1: 10,
+        field2: true,
+        field3: "value",
+        field4: [1, 2, 3, 4],
+        field5: {
+          // 사용자 정의 객체
+          field_1: false,
+        },
+
+        method1: function () {},
+        method2: function (param1, param2) {},
+      };
+
+      // jquery startup point
+      $(function () {
+        console.clear(); // 브라우저의 console탭 지우기
+        console.log("jq started");
+
+        // 단독이벤트(onclick) 등록
+
+        $("button.b1").click(function () {
+          //img태그에 대해 애니메이션 수행
+          $("img").animate(
+            {
+              // 객체 리터럴 방식으로 애니메이션 효과 지정
+              width: "100px", // 애니메이션 대상 속성1
+              opacity: 0.2, // 애니메이션 대상 속성2
+            },
+            2000,
+            function () {
+              console.log("-첫번째 애니메이션 완료");
+            }
+          ); // animate: 2000은 애니메이션 지속시간(duration time, ms)
+        }); // onclick for button.b1
+
+        $("button.b2").click(function () {
+          $("img").animate(
+            {
+              height: "250px",
+            },
+            1000,
+            function () {
+              console.log("-두번째 애니메이션 완료");
+            }
+          ); // animate: 1000은 애니메이션 지속시간(duration time, ms)
+        }); // // onclick for button.b2
+
+        $("button.b3").click(function () {
+          $("img").animate(
+            {
+              width: "300px",
+            },
+            "fast", // 지속시간을 빠르게
+            function () {
+              // 완료 후 callback
+              console.log("-세번째 애니메이션 완료");
+            }
+          ); // anmate: fast는 애니메이션 지속시간
+        }); // onclick for button.b3
+      }); // jq
+    </script>
+  </head>
+  <body>
+    <div class="css_pic">
+      <p></p>
+      <button class="b1">가로 100픽셀</button>
+      <button class="b2">가로 200픽셀</button>
+      <button class="b3">가로 300픽셀</button>
+
+      <br />
+
+      <img src="https://picsum.photos/id/598/600/400" name="pic1" />
+    </div>
+  </body>
+</html>
