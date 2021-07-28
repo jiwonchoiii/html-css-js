@@ -1,0 +1,82 @@
+[
+    {
+        "id": 1,
+        "first_name": "Deck",
+        "last_name": "Scoyles",
+        "email": "dscoyles0@ft.com",
+        "gender": "Male",
+        "ip_address": "158.73.45.167"
+    },
+    {
+        "id": 2,
+        "first_name": "Galvin",
+        "last_name": "Moreinu",
+        "email": "gmoreinu1@dropbox.com",
+        "gender": "Non-binary",
+        "ip_address": "42.121.243.136"
+    },
+    {
+        "id": 3,
+        "first_name": "Olympie",
+        "last_name": "MacLucais",
+        "email": "omaclucais2@state.tx.us",
+        "gender": "Agender",
+        "ip_address": "214.48.183.201"
+    },
+    {
+        "id": 4,
+        "first_name": "Lewiss",
+        "last_name": "Pardey",
+        "email": "lpardey3@yellowbook.com",
+        "gender": "Female",
+        "ip_address": "36.50.163.69"
+    },
+    {
+        "id": 5,
+        "first_name": "Charlotta",
+        "last_name": "Frankis",
+        "email": "cfrankis4@businessweek.com",
+        "gender": "Non-binary",
+        "ip_address": "84.252.92.168"
+    },
+    {
+        "id": 6,
+        "first_name": "Elisa",
+        "last_name": "Bikker",
+        "email": "ebikker5@360.cn",
+        "gender": "Female",
+        "ip_address": "184.171.116.253"
+    },
+    {
+        "id": 7,
+        "first_name": "Ernestus",
+        "last_name": "Skipp",
+        "email": "eskipp6@shutterfly.com",
+        "gender": "Bigender",
+        "ip_address": "79.254.150.3"
+    },
+    {
+        "id": 8,
+        "first_name": "Bill",
+        "last_name": "Bellefant",
+        "email": "bbellefant7@sfgate.com",
+        "gender": "Agender",
+        "ip_address": "114.158.248.180"
+    },
+    {
+        "id": 9,
+        "first_name": "Imogene",
+        "last_name": "Neeve",
+        "email": "ineeve8@ow.ly",
+        "gender": "Polygender",
+        "ip_address": "233.151.47.66"
+    },
+    {
+        "id": 10,
+        "first_name": "Peggy",
+        "last_name": "Carmo",
+        "email": "pcarmo9@umn.edu",
+        "gender": "Polygender",
+        "ip_address": "188.225.212.185"
+    }
+]
