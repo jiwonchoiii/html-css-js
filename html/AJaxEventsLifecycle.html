@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-migrate/3.3.2/jquery-migrate.min.js"></script>
+
+    <script>
+      //----------------------------------------------------------------//
+      // 1. jqAJax global events lifecyle
+      //----------------------------------------------------------------//
+
+      // (method) JQuery.ajaxStart(handler: () => any): JQuery
+      $(document).ajaxStart((event) => {
+        console.log("1. [ ajaxStart ] invoked.");
+      }); // ajaxStart
+
+      // (method) JQuery.ajaxSend(
+      //      handler: (
+      //          event: JQueryEventObject,
+      //          jqXHR: JQueryXHR,
+      //          ajaxOptions: JQueryAjaxSettings
+      //      ) => any): JQuery
+      $(document).ajaxSend((event, jqXHR, ajaxOptions) => {
+        console.log("3. [ ajaxSend ] invoked.");
+      }); // ajaxSend
+
+      // (method) JQuery.ajaxSuccess(
+      //      handler: (
+      //          event: JQueryEventObject,
+      //          XMLHttpRequest: XMLHttpRequest,
+      //          ajaxOptions: JQueryAjaxSettings
+      //      ) => any): JQuery
+      $(document).ajaxSuccess((event, xhr, ajaxOptions) => {
+        console.log("5. [ ajaxSuccess ] invoked.");
+      }); // ajaxSuccess
+
+      // (method) JQuery.ajaxError(
+      //      handler: (
+      //          event: JQueryEventObject,
+      //          jqXHR: JQueryXHR,
+      //          ajaxSettings: JQueryAjaxSettings,
+      //          thrownError: any
+      //      ) => any): JQuery
+      $(document).ajaxError((event, jqXHR, ajaxSettings, thrownError) => {
+        console.log("5. [ ajaxError ] invoked.");
+      }); // ajaxError
+
+      // (method) JQuery.ajaxComplete(handler: (event: JQueryEventObject, XMLHttpRequest: XMLHttpRequest, ajaxOptions: any) => any): JQuery
+      $(document).ajaxComplete((event, xhr, ajaxOptions) => {
+        console.log("7. [ ajaxComplete ] invoked.");
+      }); // ajaxComplete
+
+      // (method) JQuery.ajaxStop(handler: () => any): JQuery
+      $(document).ajaxStop((event) => {
+        console.log("8. [ ajaxStop ] invoked.");
+      }); // ajaxStop
+
+      //----------------------------------------------------------------//
+      // 2. jqAJax 기본 설정 수행
+      //----------------------------------------------------------------//
+      $.ajaxSetup({
+        async: true, // Whether to use Async.
+        cache: false, // Whether to use web browser cache
+        // for the current ajax response.
+        timeout: 1000, // Time unit: milliseconds
+        global: true, // Whether to use Gobal Events.
+
+        crossDomain: false,
+
+        headers: {
+          // Always added automatically
+          "X-Requested-With": "XMLHttpRequest",
+          "Custom-Header1": "Custom-Value1",
+          "Custom-Header2": "Custom-Value2",
+        },
+
+        // 응답문서의 HTTP status code에 따라, callback을 지정할
+        // 수 있음.
+        statusCode: {
+          200: function () {
+            // 200 : OK
+            console.log("\t>>>> 200 called.");
+          }, // 200
+
+          404: function () {
+            // 404 : Not found
+            console.log("\t>>>> 404 called.");
+          }, // 404
+
+          500: function () {
+            // 500 : Internal Server Error
+            console.log("\t>>>> 500 called.");
+          }, // 500
+        },
+
+        // jqAjax local event 마져도, 기본설정으로 포함시킬 수가 있다.
+        beforeSend: (jqXHR, settings) => {
+          // jqAjax local event
+          console.log("2. [ beforeSend ] invoked.");
+        },
+
+        dataFilter: (data, dataType) => {
+          // jqAjax local event
+          console.log("4-0. [ dataFilter ] invoked.");
+
+          return data;
+        },
+
+        //---------------------------------------------//
+        // Deprecation Notice:
+        //    The jqXHR.success(), jqXHR.error(), and jqXHR.complete()
+        //    callbacks are removed as of jQuery 3.0.
+        //
+        // You can use jqXHR.done(), jqXHR.fail(), and jqXHR.always()
+        // instead.
+        //---------------------------------------------//
+        complete: (jqXHR, textStatus) => {
+          // jqAjax local event
+          console.log("6. [ complete ] invoked.");
+        }, // complete
+      }); // $.ajaxSetup
+
+      //----------------------------------------------------------------//
+      // 3. jqAJax를 이용한 비동기 요청 수행
+      //----------------------------------------------------------------//
+
+      $(function () {
+        console.clear();
+        console.log("jq started.....");
+
+        // Built-in document
+        // console.log('\t+ this:', this instanceof Document, this);
+
+        // 비동기 요청 수행 by $.ajax (가장 근간이 되는 jq의 비동기 메소드)
+        let jqXHR = $.ajax({
+          //--1. HTTP method 설정
+          // type: 'GET',     // 이전 방식
+          method: "GET", // 현재 변경된 방식
+
+          //--2. 요청문서에 포함시켜 서버로 전송할 데이터의 설정
+          data: "name=jiwon&age=28",
+          contentType: "application/x-www-form-urlencoded; charset=utf8",
+
+          //--3. 요청URL설정 및 응답문서의 유형을 설정
+          url: "../doc/people.json",
+          dataType: "json",
+
+          //--4. AJax Local Events 등록
+
+          success: (data, textStatus, jqXHR) => {
+            console.log("4-1. [ success ] invoked.");
+          }, // success
+
+          error: (jqXHR, textStatus, errorThrown) => {
+            console.log("4-2. [ error ] invoked.");
+          }, // error
+        }); // $.ajax
+
+        //************* jQuery 3.0 and above **************//
+
+        //----------- jqXHR.done <== $.ajax.success  -----------//
+        // jqXHR.done((data, textStatus, jqXHR) => {
+        //     console.log('********** 4-1. done invoked **********');
+
+        //     console.log('\t+ data:', data);
+        //     console.log('\t+ textStatus:', textStatus);
+        //     console.log('\t+ jqXHR:', jqXHR);
+
+        // });  // done
+
+        //----------- jqXHR.fail <== $.ajax.error  -----------//
+        // jqXHR.fail((jqXHR, textStatus, errorThrown) => {
+        //     console.log('********** 4-2. fail invoked **********');
+
+        //     console.log('\t+ jqXHR:', jqXHR);
+        //     console.log('\t+ textStatus:', textStatus);
+        //     console.log('\t+ errorThrown:', errorThrown);
+
+        // });  // error
+
+        //----------- jqXHR.always <== $.ajax.complete  -----------//
+        // jqXHR.always((op1, op2, op3) => {
+        //     console.log('********** 4-2. always invoked **********');
+
+        //     console.log('\t+ op1:', op1);
+        //     console.log('\t+ op2:', op2);
+        //     console.log('\t+ op3:', op3);
+
+        // });  // always
+
+        //********** jQuery 3.0 and above ***********//
+      }); // jq
+    </script>
+  </head>
+  <body>
+    <h2>AJax global & local Events Lifecycle</h2>
+  </body>
+</html>
