@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ajax</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-migrate/3.3.2/jquery-migrate.min.js"></script>
+
+    <script>
+      $(function () {
+        console.clear();
+        console.log("jq started");
+
+        $("form").submit(function (e) {
+          console.log("- submit event handler invoked.");
+
+          // 1. form의 모든 전송파라미터들을 query string 형태로 변환
+          // ex) name, age --> name=jiwon&age=28
+          var qs = $(this).serialize();
+          console.log("\t1. serialize:", qs);
+
+          // 2. form의 모든 전송파라미터들을 자바스크립트의 객체배열로 변환
+          // ex)    name, age --> [{name:'jiwon'}, {age:28}]
+          var arr = $(this).serializeArray();
+          console.log("\t2. serializeArray:", arr);
+
+          // 객체리터럴 방식으로, 사용자 정의 객체 생성
+          var obj = {
+            name: "jiwon",
+            age: 28,
+          };
+
+          // 3. 자바스크립트 객체를 query string으로 변환
+          console.log("\t3. param:", $.param(obj));
+
+          // 4. JSON.stringify(obj): Object --> JSON문자열로 변환
+          var objStr = JSON.stringify(obj);
+          console.log("\t4. JSONstringify:", objstr);
+
+          // 5. JSON.parse(json): JSON 문자열 --> Object로 변환
+
+          obj = JSON.parse(objStr);
+          console.log("\t5. JSON.parse", obj);
+
+          // 6. 이벤트를 무력화 시키는 방법 2가지
+          e.preventDefault();
+          //   return false;
+        }); // submit
+      }); // jq
+    </script>
+  </head>
+  <body>
+    <form action="">
+      <!-- 액션속성이 비어있다면 자기 자신이 요청을 받는다. -->
+      1. name: <input type="text" name="name" /><br />
+      2. age: <input type="number" name="age" />
+
+      <p></p>
+      <input type="submit" />
+    </form>
+  </body>
+</html>

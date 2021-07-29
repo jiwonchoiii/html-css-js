@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-migrate/3.3.2/jquery-migrate.min.js"></script>
+
+    <script>
+      // jquery startup point
+      $(function () {
+        console.clear();
+        console.log("jq started");
+
+        // 여기부터가 제이쿼리로 구현된 ajax의 가장 핵심이 되는
+        // $.ajax() 메소드를 사용하여, 비동기적으로 서버에 요청을 보내고
+        // 응답으로 json문서를 받아와서, 이 json 문서의 데이터로 table을 만드려고함.
+        // 당연히, 현재의 페이지 전환없이 !
+
+        var jqXHR = $.ajax({
+          async: true,
+          timeout: 500,
+          cache: false,
+
+          method: "GET",
+
+          url: "../doc/people.json",
+          dataType: "json",
+
+          // 서버로부터 요청한 문서가 잘 수신되면 아래의 메소드 수행(callback)
+          success: function (data, textStatus, jqXHR) {
+            console.log("--------------------");
+            console.log(`- success() invoked.`);
+            console.log("--------------------");
+
+            // 서버가 응답으로 준 문서가 바로, 이 data 매개변수에 전달됨
+            console.dir(data);
+
+            // 서버 응답문서는 JSON으로, 배열의 크기가 0보다 크면(즉, 데이터가 있다면 if block 수행)
+
+            if (data.length > 0) {
+              // 새로운 테이블 태그 생성
+              // 참고: $('<태그명/>') 하면,
+              // 지정된 태그가 새로이 요소노드로 생성됨
+              var table = $('<table border="1"/>'); // <table> 태그 생성
+
+              // for-of 구문으로, 배열안의 원소를 순회함
+              for (let person of data) {
+                let tr = $("<tr/>"); // 새로운 <tr> 태그 생성
+
+                // 순회하는 각 원소(객체리터럴방식의 사용자 객체)에
+                // 있는 항목값을 가지고, 새로운 <td>태그들을 생성함.
+
+                let id = $("<td/>").text(person.id);
+                let first_name = $("<td/>").text(person.first_name);
+                let last_name = $("<td/>").text(person.last_name);
+                let email = $("<td/>").text(person.email);
+                let gender = $("<td/>").text(person.gender);
+                let ip_address = $("<td/>").text(person.ip_address);
+
+                // 각 사람의 항목으로 구성된 <td> 태그를 <tr>태그의 자식노드로 추가함.
+
+                tr.append(id);
+                tr.append(first_name);
+                tr.append(last_name);
+                tr.append(email);
+                tr.append(gender);
+                tr.append(ip_address);
+
+                // 마지막으로 <table> 태그에 각 <tr>태그를 추가한다
+                table.append(tr);
+              } // for-of
+
+              // 마지막으로 <div>태그의 자식노드로 <table>태그 추가
+              $("#wrapper").append(table);
+            } // if
+          }, // success
+        }); // ajax
+      }); // jq
+    </script>
+  </head>
+  <body>
+    <div id="wrapper"></div>
+  </body>
+</html>

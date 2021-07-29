@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ajax</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-migrate/3.3.2/jquery-migrate.min.js"></script>
+
+    <script>
+      $(function () {
+        console.clear();
+        console.log("jq started");
+
+        // let 변수: block변수. 변수가 정의된 block안에서만 유효범위를 갖는 변수
+        let jqXHR = $.ajax({
+          // 비동기 요청을 위한 기본설정항목
+          async: true,
+          cache: false,
+          timeout: 500,
+          crossDomain: true,
+
+          // 실제 우리가 원하는 자원을 ㅂ동기로 요청하는 설정
+          data: "name=jiwon&age=28",
+          contentType: "application/x-www-form-urlencoded",
+          // 보내는 데이터의 type은 contentType.
+          // 받기를 원하는 데이터의 타입은 dataType.
+
+          method: "get",
+          url: "../doc/people.xml",
+          dataType: "xml",
+
+          // 로컬 이벤트 핸들러 등록
+          beforeSend: function (jqXHR, settings) {
+            console.log("\t+ beforeSend invoked");
+          },
+
+          // 성공적으로 응답이 들어온 경우
+          success: function (data, testStatus, jqXHR) {
+            console.log("\t+ success invoked");
+
+            // 현재의 DOM tree에 XML데이터를 이용해서, 바인딩작업
+
+            // 수신된 XML문서에 <person> 태그가 1개 이상 있다면
+            let people = $(data).find("person");
+            if (people.length > 0) {
+              // table 태그 생성(아직 DOM tree에는 붙이지 않았음)
+              let table = $('<table border="1"/>');
+
+              // $.each(): 배열 순회 메소드
+              $.each(people, function (index, person) {
+                let tr = $("<tr/>");
+
+                // XML 문서의 각 person 태그의 자식태그를 찾아서, 그 값을 얻어다가 let 변수에 저장
+                let id = $(person).find(id).text();
+                let first_name = $(person).find(first_name).text();
+                let last_name = $(person).find(last_name).text();
+                let email = $(person).find(email).text();
+                let gender = $(person).find(gender).text();
+                let ip_address = $(person).find(ip_address).text();
+
+                // 각 person 태그를 순회할 때마다, td태그들을 생성하고, 이 태그의 값(컨텐츠)으로 XML의 데이터를 설정
+                $("<td/>").text(id).appendTo(tr);
+                $("<td/>").text(first_name).appendTo(tr);
+                $("<td/>").text(last_name).appendTo(tr);
+                $("<td/>").text(email).appendTo(tr);
+                $("<td/>").text(gender).appendTo(tr);
+                $("<td/>").text(ip_address).appendTo(tr);
+
+                // table태그의 자식태그로 tr태그를 추가
+                table.append(tr);
+              }); // $.each
+
+              // 마지막으로, 현재 문서의 div태그에 위에서 생성완료한 table 태그 추가
+              $("#wrapper").append(table);
+            } // if
+          },
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div id="wrapper"></div>
+  </body>
+</html>
